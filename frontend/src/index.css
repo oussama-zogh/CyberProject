@@ -1,0 +1,107 @@
+:root {
+  /* Color system */
+  --navy: #0f1e3c;
+  --navy-mid: #162447;
+  --navy-light: #1e3a5f;
+  --blue: #1a6bc4;
+  --blue-bright: #2584e8;
+  --blue-glow: #3a9eff;
+  --accent: #00d4ff;
+  --accent-dim: rgba(0, 212, 255, 0.15);
+  --white: #ffffff;
+  --off-white: #f0f4ff;
+  --gray-100: #e8edf8;
+  --gray-200: #c8d4e8;
+  --gray-400: #8898b8;
+  --gray-600: #4a5a78;
+  --success: #00c896;
+  --success-dim: rgba(0, 200, 150, 0.12);
+  --error: #ff4d6a;
+  --error-dim: rgba(255, 77, 106, 0.12);
+  --warning: #ffb347;
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-blue: 0 0 40px rgba(37, 132, 232, 0.25);
+  --shadow-glow: 0 0 60px rgba(0, 212, 255, 0.15);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--off-white);
+  color: var(--navy);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--gray-100); }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
+
+/* Selection */
+::selection { background: var(--accent-dim); color: var(--navy); }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Utility classes */
+.animate-fadeUp  { animation: fadeUp 0.5s ease forwards; }
+.animate-fadeIn  { animation: fadeIn 0.4s ease forwards; }
+
+button { cursor: pointer; border: none; outline: none; font-family: var(--font-body); }
+input, textarea { font-family: var(--font-body); outline: none; }
+a { text-decoration: none; color: inherit; }

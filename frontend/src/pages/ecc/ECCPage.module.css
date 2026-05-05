@@ -1,0 +1,502 @@
+/* ═══════════════════════════════════════════════════════════════
+   ECCPage.module.css  —  Membre 2 : ECC Cryptography
+   Basé sur le squelette original — classes originales conservées
+   + nouvelles classes pour les sections fonctionnelles
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Classes originales du squelette (NE PAS SUPPRIMER) ──────── */
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.iconWrap {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #00a878, #00c896);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 16px rgba(0, 200, 150, 0.35);
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  margin-top: 4px;
+}
+
+/* apiNote — gardé du squelette, enrichi */
+.apiNote {
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 16px 22px;
+  font-size: 0.82rem;
+  color: var(--gray-200);
+  display: block;
+  text-align: left;
+  line-height: 1.9;
+  margin-top: 8px;
+}
+
+.apiNote code {
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+
+.apiNoteText {
+  display: block;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+
+/* ── Bandeau courbe elliptique ──────────────────────────────── */
+.curveBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  background: var(--navy);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.curveBar span {
+  flex: 1 1 120px;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 18px;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: #00c896;
+  font-weight: 600;
+}
+
+.curveBar span:last-child { border-right: none; }
+
+.curveBar em {
+  font-style: normal;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 2px;
+  font-family: var(--font-body);
+}
+
+/* ── Alerte ──────────────────────────────────────────────────── */
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.alert_success {
+  background: rgba(0, 200, 150, 0.1);
+  border: 1px solid rgba(0, 200, 150, 0.35);
+  color: #007a58;
+}
+
+.alert_error {
+  background: rgba(239, 68, 68, 0.07);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #b91c1c;
+}
+
+.alertClose {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: inherit;
+  opacity: 0.55;
+  margin-left: auto;
+  flex-shrink: 0;
+  padding: 0;
+}
+.alertClose:hover { opacity: 1; }
+
+/* ── Carte section ───────────────────────────────────────────── */
+.card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 14px rgba(15, 30, 60, 0.06);
+  border: 1px solid rgba(15, 30, 60, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.cardIconWrap {
+  width: 38px;
+  height: 38px;
+  background: rgba(0, 200, 150, 0.12);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00c896;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 4px;
+}
+
+.cardDesc {
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Bouton principal ────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #00a878, #00c896);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 20px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(0, 200, 150, 0.3);
+  align-self: flex-start;
+}
+
+.btn:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 200, 150, 0.4);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Dropzone ────────────────────────────────────────────────── */
+.dropzone {
+  border: 2px dashed rgba(15, 30, 60, 0.16);
+  border-radius: 14px;
+  padding: 20px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  background: var(--off-white);
+}
+
+.dropzone:hover,
+.dropzoneDragging {
+  border-color: #00c896;
+  background: rgba(0, 200, 150, 0.06);
+}
+
+.dropzoneHasFile {
+  border-color: #00c896;
+  border-style: solid;
+  background: rgba(0, 200, 150, 0.06);
+}
+
+.dropzoneIcon {
+  color: #00c896;
+  flex-shrink: 0;
+}
+
+.dropzoneText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dropzoneText strong {
+  font-size: 0.9rem;
+  color: var(--navy);
+  word-break: break-all;
+}
+
+.dropzoneText span {
+  font-size: 0.78rem;
+  color: var(--gray-600);
+}
+
+/* ── Boîte de clé ───────────────────────────────────────────── */
+.keyBox {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeSlide 0.28s ease;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.keyField {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.keyLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.keyValueRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.keyValue {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: #00c896;
+  word-break: break-all;
+  flex: 1;
+  line-height: 1.55;
+}
+
+.copyBtn {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  padding: 5px 7px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+.copyBtn:hover { background: rgba(255, 255, 255, 0.14); color: #fff; }
+
+.keyMeta {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.35);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 10px;
+  margin: 0;
+}
+
+/* ── Checkbox + Inputs ───────────────────────────────────────── */
+.checkLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.87rem;
+  color: var(--gray-600);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkLabel input[type='checkbox'] {
+  accent-color: #00c896;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.inputRow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inputWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.inputWrap label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+.input {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  padding: 10px 13px;
+  border: 1.5px solid rgba(15, 30, 60, 0.14);
+  border-radius: 8px;
+  background: var(--off-white);
+  color: var(--navy);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  border-color: #00c896;
+  background: #fff;
+}
+
+.input::placeholder { color: rgba(15, 30, 60, 0.28); }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .page      { padding: 24px 16px 60px; }
+  .card      { padding: 20px 16px; }
+  .curveBar  { flex-direction: column; }
+  .curveBar span { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .btn       { width: 100%; justify-content: center; }
+}
+/* ── Grille inputs courbe custom ─────────────────────────────── */
+.inputGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .inputGrid { grid-template-columns: 1fr; }
+}
+
+/* ── Rangée de boutons ───────────────────────────────────────── */
+.btnRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ── Bouton secondaire ───────────────────────────────────────── */
+.btnSecondary {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid rgba(15, 30, 60, 0.2);
+  box-shadow: none;
+}
+
+.btnSecondary:hover:not(:disabled) {
+  background: rgba(15, 30, 60, 0.05);
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+
+/* ── Badge temps d'exécution ─────────────────────────────────── */
+.timeBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 4px 10px;
+  align-self: flex-start;
+}
+
+/* ── Label de sous-section ───────────────────────────────────── */
+.sectionLabel {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0;
+}
+
+/* ── Divider ─────────────────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid rgba(15, 30, 60, 0.08);
+  margin: 4px 0;
+}
+
+/* ── Résultat vérification ───────────────────────────────────── */
+.verifyResult {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.keyBoxSuccess {
+  border: 1px solid rgba(0, 200, 150, 0.4);
+}
+
+.keyBoxError {
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+/* ── inputRow en ligne sur desktop ──────────────────────────── */
+@media (min-width: 601px) {
+  .inputRow {
+    flex-direction: row;
+  }
+  .inputRow .inputWrap {
+    flex: 1;
+  }
+}

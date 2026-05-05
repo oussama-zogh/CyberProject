@@ -1,0 +1,192 @@
+.page { max-width: 960px; margin: 0 auto; padding: 40px 24px 100px; }
+
+/* ── Page Header ── */
+.pageHeader { display:flex; align-items:center; gap:16px; margin-bottom:24px; flex-wrap:wrap; }
+.pageIconWrap {
+  width:52px; height:52px; flex-shrink:0;
+  background:linear-gradient(135deg,var(--blue),var(--blue-bright));
+  border-radius:14px; display:flex; align-items:center; justify-content:center;
+  color:white; box-shadow:0 4px 16px rgba(37,132,232,0.35);
+}
+.pageTitle { font-family:var(--font-display); font-size:1.8rem; font-weight:700; color:var(--navy); letter-spacing:-0.02em; }
+.pageSub { font-size:0.82rem; color:var(--gray-600); margin-top:3px; }
+.keyStatus {
+  margin-left:auto; display:flex; align-items:center; gap:8px;
+  background:rgba(0,200,150,0.08); border:1px solid rgba(0,200,150,0.35);
+  color:#00a87a; font-size:0.75rem; font-family:var(--font-mono);
+  padding:6px 14px; border-radius:100px;
+}
+.keyDot { width:7px; height:7px; background:#00c896; border-radius:50%; box-shadow:0 0 6px #00c896; }
+
+/* ── How Strip ── */
+.howStrip {
+  display:flex; align-items:center; flex-wrap:wrap; gap:6px;
+  background:var(--navy); border-radius:14px; padding:14px 20px; margin-bottom:28px;
+}
+.howStep {
+  font-size:0.7rem; font-family:var(--font-mono); color:var(--gray-200);
+  background:rgba(255,255,255,0.05); padding:4px 10px; border-radius:6px; white-space:nowrap;
+}
+
+/* ── Sections ── */
+.sections { display:flex; flex-direction:column; gap:18px; }
+.section {
+  background:var(--white); border:1.5px solid var(--gray-100);
+  border-radius:20px; padding:26px 28px; animation:fadeUp 0.4s ease both;
+}
+.sectionHeader { display:flex; align-items:flex-start; gap:14px; margin-bottom:18px; }
+.sectionIcon {
+  width:40px; height:40px; border-radius:12px; flex-shrink:0;
+  background:rgba(37,132,232,0.1); color:var(--blue);
+  display:flex; align-items:center; justify-content:center;
+}
+.sectionTitle { font-family:var(--font-display); font-size:1.05rem; font-weight:700; color:var(--navy); letter-spacing:-0.01em; }
+.sectionSub { font-size:0.8rem; color:var(--gray-600); margin-top:3px; }
+
+/* ── Bannieres info/warning ── */
+.infoStrip {
+  display:flex; align-items:center; gap:7px;
+  background:rgba(37,132,232,0.06); border:1px solid rgba(37,132,232,0.15);
+  color:var(--blue); font-size:0.76rem; font-family:var(--font-mono);
+  padding:8px 14px; border-radius:10px; margin-bottom:16px;
+}
+.staticNote {
+  display:flex; align-items:center; gap:7px;
+  background:rgba(192,132,252,0.08); border:1px solid rgba(192,132,252,0.2);
+  color:#9b59b6; font-size:0.78rem; padding:9px 14px; border-radius:10px; margin-bottom:16px;
+}
+.warningBanner {
+  display:flex; align-items:center; gap:7px;
+  background:rgba(255,179,71,0.08); border:1px solid rgba(255,179,71,0.25);
+  color:var(--warning); font-size:0.8rem; padding:9px 14px; border-radius:10px; margin-bottom:14px;
+}
+.autoNote { display:flex; align-items:center; gap:6px; font-size:0.76rem; color:var(--gray-600); margin-bottom:14px; }
+
+/* ── Inputs ── */
+.inputRow2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+.field { display:flex; flex-direction:column; gap:6px; }
+.fieldLabel { font-size:0.76rem; font-weight:600; color:var(--navy); letter-spacing:0.02em; }
+.input {
+  padding:10px 14px; border:1.5px solid var(--gray-200); border-radius:10px;
+  font-size:0.9rem; font-family:var(--font-mono); color:var(--navy);
+  background:var(--off-white); transition:border-color 0.2s, box-shadow 0.2s; width:100%;
+}
+.input:focus { border-color:var(--blue); background:white; box-shadow:0 0 0 3px rgba(37,132,232,0.1); }
+.textarea {
+  width:100%; padding:12px 14px; resize:vertical;
+  border:1.5px solid var(--gray-200); border-radius:10px;
+  font-size:0.86rem; font-family:var(--font-mono); color:var(--navy);
+  background:var(--off-white); transition:border-color 0.2s; line-height:1.5;
+}
+.textarea:focus { border-color:var(--blue); background:white; outline:none; box-shadow:0 0 0 3px rgba(37,132,232,0.1); }
+
+/* ── Boutons ── */
+.btnPrimary {
+  display:inline-flex; align-items:center; gap:8px;
+  background:linear-gradient(135deg,var(--blue),var(--blue-bright));
+  color:white; font-size:0.88rem; font-weight:600;
+  padding:11px 22px; border-radius:10px; margin-top:14px;
+  transition:all 0.2s; box-shadow:0 4px 14px rgba(37,132,232,0.3);
+}
+.btnPrimary:hover:not(:disabled) { transform:translateY(-1px); box-shadow:0 6px 20px rgba(37,132,232,0.4); }
+.btnPrimary:disabled { opacity:0.4; cursor:not-allowed; }
+.btnGreen  { background:linear-gradient(135deg,#00a878,#00c896); box-shadow:0 4px 14px rgba(0,200,150,0.3); }
+.btnGreen:hover:not(:disabled)  { box-shadow:0 6px 20px rgba(0,200,150,0.4); }
+.btnOrange { background:linear-gradient(135deg,#e07020,#ffb347); box-shadow:0 4px 14px rgba(255,179,71,0.3); }
+.btnCyan   { background:linear-gradient(135deg,#0097b2,#00d4ff); box-shadow:0 4px 14px rgba(0,212,255,0.3); }
+.btnDownload {
+  display:inline-flex; align-items:center; gap:7px;
+  background:var(--navy); color:var(--white);
+  font-size:0.82rem; font-weight:500; padding:9px 16px; border-radius:9px; transition:background 0.2s;
+}
+.btnDownload:hover { background:var(--navy-light); }
+.btnSig { background:rgba(192,132,252,0.15); color:#9b59b6; border:1px solid rgba(192,132,252,0.3); }
+.btnSig:hover { background:rgba(192,132,252,0.25); }
+.spinner { display:inline-flex; animation:spin 0.8s linear infinite; }
+
+/* ── Key Boxes ── */
+.keyGrid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+.keyGrid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.keyBox { background:var(--navy); border-radius:12px; padding:14px 16px; border:1px solid rgba(255,255,255,0.06); }
+.keyBoxHeader { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+.keyBoxLabel { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:var(--kc,var(--accent)); }
+.copyBtn {
+  display:inline-flex; align-items:center; gap:4px;
+  background:rgba(255,255,255,0.07); color:var(--gray-400);
+  font-size:0.68rem; padding:3px 8px; border-radius:5px; cursor:pointer; border:none; transition:background 0.15s;
+}
+.copyBtn:hover { background:rgba(255,255,255,0.13); color:white; }
+.keyPair { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:5px; }
+.keyName { font-family:var(--font-mono); font-size:0.72rem; color:var(--gray-400); }
+.keyVal  { font-family:var(--font-mono); font-size:0.8rem; color:white; font-weight:500; word-break:break-all; text-align:right; }
+
+/* ── Steps (generation uniquement) ── */
+.steps { background:var(--off-white); border-radius:12px; padding:14px 16px; margin-top:16px; border:1px solid var(--gray-100); }
+.stepsTitle { display:flex; align-items:center; gap:6px; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--blue); margin-bottom:10px; }
+.step { font-family:var(--font-mono); font-size:0.76rem; color:var(--navy); padding:5px 0; border-bottom:1px solid var(--gray-100); line-height:1.5; }
+.step:last-child { border-bottom:none; }
+
+/* ── Timing Block ── */
+.timingBlock { background:var(--navy); border-radius:12px; padding:14px 16px; margin-top:12px; }
+.timingTitle { display:flex; align-items:center; gap:6px; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); margin-bottom:10px; }
+.timingRows { display:flex; flex-direction:column; gap:6px; }
+.timingRow { display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.04); border-radius:7px; padding:6px 10px; }
+.timingLabel { font-family:var(--font-mono); font-size:0.74rem; color:var(--gray-400); text-transform:capitalize; }
+.timingVal   { font-family:var(--font-mono); font-size:0.8rem; font-weight:700; color:var(--accent); }
+
+/* ── Formulas Block ── */
+.formulasBlock { margin-top:12px; border-top:1px solid rgba(255,255,255,0.07); padding-top:12px; }
+.formulasTitle { font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--gray-400); margin-bottom:8px; }
+.formulaRow { display:flex; flex-direction:column; gap:2px; margin-bottom:8px; background:rgba(255,255,255,0.03); border-radius:6px; padding:7px 10px; }
+.formulaKey { font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#c084fc; }
+.formulaVal { font-family:var(--font-mono); font-size:0.72rem; color:var(--gray-200); word-break:break-all; line-height:1.5; }
+
+/* ── Alert ── */
+.alert { display:flex; align-items:center; gap:9px; padding:10px 14px; border-radius:10px; font-size:0.83rem; font-weight:500; margin-top:12px; animation:fadeIn 0.3s ease; }
+.success { background:rgba(0,200,150,0.08); border:1px solid rgba(0,200,150,0.3); color:#00a87a; }
+.error   { background:rgba(255,77,106,0.08); border:1px solid rgba(255,77,106,0.3); color:var(--error); }
+
+/* ── Signature Badge ── */
+.sigBadge { display:flex; align-items:center; gap:9px; padding:10px 14px; border-radius:10px; font-size:0.84rem; font-weight:600; margin-top:12px; animation:fadeIn 0.3s ease; }
+.sigOk   { background:rgba(0,200,150,0.08); border:1px solid rgba(0,200,150,0.3); color:#00a87a; }
+.sigFail { background:rgba(255,77,106,0.08); border:1px solid rgba(255,77,106,0.3); color:var(--error); }
+
+/* ── Drop Zone ── */
+.dropZone { border:2px dashed var(--gray-200); border-radius:14px; padding:28px 20px; text-align:center; cursor:pointer; transition:all 0.2s; color:var(--gray-600); font-size:0.86rem; margin-bottom:14px; }
+.dropZone:hover { border-color:var(--blue); background:rgba(37,132,232,0.03); }
+.dragging { border-color:var(--blue); background:rgba(37,132,232,0.06); }
+.hasFile  { border-color:var(--success); background:rgba(0,200,150,0.05); }
+.dropIcon { color:var(--gray-400); margin-bottom:8px; }
+.hasFile .dropIcon { color:var(--success); }
+.dropHint { font-size:0.74rem; color:var(--gray-400); margin-top:4px; }
+.fileInfo { display:flex; flex-direction:column; gap:3px; }
+.fileInfo strong { color:var(--navy); font-size:0.88rem; }
+.fileInfo span   { font-size:0.74rem; color:var(--gray-400); }
+.twoDrops { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:4px; }
+.dropLabel { font-size:0.76rem; font-weight:600; color:var(--navy); margin-bottom:6px; }
+
+/* ── Result Block ── */
+.resultBlock { margin-top:16px; display:flex; flex-direction:column; gap:12px; }
+.hashLine { display:flex; align-items:flex-start; gap:12px; background:var(--off-white); border-radius:10px; padding:10px 14px; border:1px solid var(--gray-100); }
+.hashLabel { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--gray-600); white-space:nowrap; margin-top:1px; }
+.hashVal   { font-family:var(--font-mono); font-size:0.74rem; color:var(--navy); word-break:break-all; }
+.downloadRow { display:flex; gap:10px; flex-wrap:wrap; }
+
+/* ── Cipher Outputs ── */
+.cipherOutputs { display:flex; flex-direction:column; gap:10px; }
+.cipherField { background:var(--off-white); border-radius:10px; border:1px solid var(--gray-100); overflow:hidden; }
+.cipherFieldHeader { display:flex; align-items:center; justify-content:space-between; padding:8px 12px; border-bottom:1px solid var(--gray-100); font-size:0.75rem; font-weight:600; color:var(--navy); }
+.cipherText { width:100%; padding:10px 12px; border:none; resize:none; font-family:var(--font-mono); font-size:0.72rem; color:var(--gray-600); background:transparent; outline:none; line-height:1.5; }
+
+/* ── Decrypted Message ── */
+.decryptedMsg { background:var(--navy); border-radius:12px; padding:14px 16px; }
+.decLabel { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:var(--accent); display:block; margin-bottom:8px; }
+.decText  { font-family:var(--font-mono); font-size:0.88rem; color:white; line-height:1.6; word-break:break-word; }
+
+/* ── Responsive ── */
+@media (max-width:640px) {
+  .inputRow2  { grid-template-columns:1fr; }
+  .keyGrid3   { grid-template-columns:1fr; }
+  .twoDrops   { grid-template-columns:1fr; }
+  .howStrip   { gap:4px; }
+}
